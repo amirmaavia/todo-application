@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'MidNight' ;
+    src: url('./MidNight.otf');
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    background: rgba(0, 0, 0, 0.829);
+   justify-content: center;
+   text-align: center;
+   line-height: 50px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    font-size: 40px;
+    font-family: cursive;
+    color: aliceblue;
+    font-family: monospace;
+    padding-top: 30px;
+}
+span{
+    color: rgba(125, 248, 125, 0.63);
+}
+input{
+    padding: 0.5rem 1rem;
+    height: 50px;
+    outline: none;
+    border: none;
+    background-color: white;
+    width: 450px;
+    font-size: 1.15rem;
+    margin: 0.25rem;
+    border-radius: 25px;
+}
+#inp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+button{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-color: lime;
+    color: #fff;
+    margin: 0.25rem;
+    cursor: pointer;
+}
+    
+
+#btn{
+    /* display: flex; */
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+h6{
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: groove 1px green;
+}
