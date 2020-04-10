@@ -8,12 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="heading"><h1>TODO <span>LIST</span></h1></div>
+    <div id="heading"></div>
     <div id="inp"></div>
     <div id="but"></div>
     <div id="save"></div>
 
     <script>
+
+        
+
         //heading tag
         showtxt()
         let heading = document.createElement('h1');
@@ -68,8 +71,8 @@ function showtxt(){
 let html = ''
 todoArr.forEach(function (element,index){
     html += ` <div>
-                 <h6>${element}</h6></div>
-                 <div><button id=${index} onclick="removehandler()"><i class="fas fa-trash-alt"></i></button></div>`
+               <ul> <li><h6>${element}</h6></div>
+                 <div><button id=${index} onclick="removehandler(id)"><i class="fas fa-trash-alt"></i></button></li></ul></div>`
                          
 });
 
@@ -90,6 +93,8 @@ function removehandler(index){
     todoArr = localStorage.setItem('todo', JSON.stringify(todoArr))
     showtxt()
 }
+
+
 </script>
 </body>
 </html>
