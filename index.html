@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="style.css" rel="stylesheet" >
+    <title>Document</title>
+</head>
+<body>
+    <div id="heading"><h1>TO DO <span>LIST</span></h1></div>
+    <div id="inp" onsubmit="required"></div>
+    <div id="but"></div>
+    <div id="save"></div>
+
+    <script>
+
+        
+
+        //heading tag
+        showtxt()
+        let heading = document.createElement('h1');
+        // heading.textContent = "TODO  LIST...!"
+        var head = document.getElementById('heading')
+        head.appendChild(heading);
+    
+        //inp
+       
+        var inp = document.createElement('input')
+        inp.setAttribute('type','text')
+        inp.setAttribute('id','text')
+        inp.setAttribute('placeholder','Enter Your Tudo Element')
+        let inpo= document.getElementById('inp')
+        inpo.appendChild(inp)
+        
+    
+    
+       
+
+//but
+let but = document.createElement('button')
+but.setAttribute('value','button')
+but.setAttribute('id','btn')
+but.innerHTML = '<i class="fas fa-plus"></i>'
+let button = document.getElementById('but')
+button.appendChild(but)
+
+
+
+let a = document.getElementById('btn')
+a.addEventListener('click',clickhandler);
+function clickhandler(){
+    var addtxt = document.getElementById('text')
+    let todo = localStorage.getItem('todo')
+    
+    if(todo == null){
+        todoArr= [];
+    }
+    else{
+        todoArr = JSON.parse(todo)
+    }
+    
+    todoArr.push (addtxt.value)
+    if(addtxt.value == 0){
+        alert("enter your todo Item")
+    }
+    else{
+    localStorage.setItem('todo', JSON.stringify(todoArr))
+    addtxt.value = ''
+    console.log(todoArr)
+    showtxt()
+    }
+}
+
+function showtxt(){
+    let todo = localStorage.getItem('todo');
+    if(todo == null){
+        todoArr = []
+    }
+    else{
+        todoArr = JSON.parse(todo)
+    }
+let html = ''
+todoArr.forEach(function (element,index){
+   
+
+        
+            html +=
+` <div> <ul> <li><h6>${element}</h6></div>
+                 <div><button id=${index} onclick="removehandler(id)"><i class="fas fa-trash-alt"></i></button></li></ul></div>`
+
+});
+
+
+let todoelement = document.getElementById('save')
+if(todoArr.length != 0){
+    todoelement.innerHTML = html
+}
+}
+function removehandler(index){
+    let todo = localStorage.getItem('todo');
+    if(todo == null){
+        todoArr = []
+    }
+    else{
+        todoArr = JSON.parse(todo)
+    }
+    todoArr.splice(index, 1)
+    todoArr = localStorage.setItem('todo', JSON.stringify(todoArr))
+    showtxt()
+}
+
+
+</script>
+</body>
+</html>
